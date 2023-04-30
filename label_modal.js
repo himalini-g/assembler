@@ -390,10 +390,10 @@ class Labels{
     // add new links
     this.path.enter().append('svg:path')
       .attr('class', 'link')
-      .classed('selected', (d) =>  { return d === this.selected_link; })
+      .classed('selected', (d) => { return d === this.selected_link; })
       .style('marker-start', function(d) { return d.left ? 'url(#start-arrow)' : ''; })
       .style('marker-end', function(d) { return d.right ? 'url(#end-arrow)' : ''; })
-      .on('mousedown', (d) =>this.pathMouseDown(d));
+      .on('mousedown', (d) => this.pathMouseDown(d));
  
   
     // remove old links

@@ -1,3 +1,6 @@
+::file-selector-button {
+  display: none;
+}
 html, body
 
 {
@@ -7,12 +10,26 @@ html, body
   background-color: #1e2433;
   color: white;
 }
+
+.slidecontainer {
+  width: 90%;
+  margin: 0px 10px;
+  margin-top: 10px;
+  font-size: 25px;
+}
+.slider-text{
+  margin: 0px;
+  margin-left: 5px;
+}
+.slider {
+  width: 90%
+}
 .invalid {
   stroke: red;
 }
 .header{
-  font-size: 40px;
-  padding: 10px 40px;
+  font-size: 45px;
+  padding: 20px 15px;
   font-weight: bold;
   /* background:  */
 }
@@ -35,8 +52,8 @@ html, body
   flex-direction: row;
 
 }
-.drawing-panel {
-  width: 250px;
+.drawing-panel, .assembler-panel {
+  width: 200px;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -44,12 +61,7 @@ html, body
   align-items: stretch;
 }
 
-.generating-panel {
-  width : 150px;
-  display: flex;
-  flex-direction: column;
 
-}
 .layer {
   align-items: vertical;
 }
@@ -64,7 +76,12 @@ html, body
 .thumbnail-panel{
     display: grid;
     grid-auto-flow: column;
-    grid-template-rows: 600px 600px 600px 600px 600px;
+    grid-template-rows: 300px 300px 300px;
+}
+.layer-panel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 250px 250px 250px;
 }
 .svg-container {
     background-color: #384052;
@@ -72,8 +89,8 @@ html, body
 }
 .thumbnail-container
 {
-    font-size: 30px;
-    padding: 10px;
+    font-size: 25px;
+    /* padding: 10px; */
     background-color: #1e2433;;
     outline: 1px solid #384052;
     display: flex;
@@ -92,7 +109,7 @@ html, body
 
 button {
   /* width: 90%; */
-  font-size: 30px;
+  font-size: 25px;
   /* height: 40px; */
   padding: 5px 3rpx;
   margin: 5px 10px;
@@ -111,7 +128,7 @@ button.inactive:hover{
   Background-color: gray;
 }
 input {
-    font-size: 30px;
+    font-size: 25px;
     height: 40px;
     margin: 5px 10px;
     Background-color: gray;
@@ -161,7 +178,7 @@ svg text{
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .marker-end{
@@ -255,4 +272,15 @@ text.id {
 
 .file-upload {
   display: none;
+}
+
+
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
 }

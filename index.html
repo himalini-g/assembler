@@ -21,7 +21,7 @@
       </div>
       <div class="header"> Make Tile </div>
       <div id="drawing-ui-container" class="drawing-container">
-        <div id="drawing-panel" class="drawing-panel">
+        <div id="drawing-tool-panel" class="drawing-panel">
           <input type="button" value="instructions" onclick="window.open('https://docs.google.com/document/d/10cBzVxWtj3KSDs_mG5ULo_yI_5gars03324DIMb4k_o/edit?usp=sharing')" />
           <button onclick="saveTile()"> save tile</button>
           <button id="draw-button"> <i class="fa fa-pencil" aria-hidden="true"></i> draw</button>
@@ -65,26 +65,32 @@
         </div>
         <div id="svg-container" class="svg-container">
         </div>
-        <div id="layer-container">
+        <div id="layer-container" class="layer-panel">
         </div>
       </div> 
     </div>
     <div class="header"> Assemble Tiles </div>
     <div id="assembler-ui-container" class="drawing-container">
-      <div id="generating-tool-panel" class="drawing-panel">
+      <div id="generating-tool-panel" class="assembler-panel">
         <button onclick="rerenderAssemblage()"> <i class="fa fa-refresh" aria-hidden="true"></i> regenerate</button>
         <button id="add-tree"> <i class="fa fa-refresh" aria-hidden="true"></i> add more</button>
         <button id="undo"> undo</button>
         <button id="redo"> redo</button>
-        <button id="automate"> automatate</button>
-        <!-- <button id="clean-up"> clean up</button> -->
-        <button id="download-assemblage" onclick="downloadAssemblage()">  <i class="fa fa-download" aria-hidden="true"></i> download</button>
-        <button onclick="downloadProject()">  <i class="fa fa-floppy-o" aria-hidden="true"></i> download project</button>
-        <button onclick> <input type="file" id="load-project" onchange="loadJSON()" accept=".json"/> <i class="fa fa-cloud-upload" aria-hidden="true"></i> load project</button>
-        <div>
-          <input type="checkbox" id="autoscale-check" name="autoscale">
-          <label for="autoscale">autoscale</label><br>
+        <div class="slidecontainer">
+          <p class="slider-text"> tile scale: <span id="scale-text"></span></p>
+          <input type="range" min="0" max="300" value="1" class="slider" id="scale-range">
         </div>
+        <button id="assemblage-width">width:<input type="number" style="width: 150px" max="50000"id="assemblage-width-input"/></button>
+        <button id="assemblage-height">height:<input type="number" style="width: 150px"  max="50000"id="assemblage-height-input"/></button>
+        <!-- <button id="clean-up"> clean up</button> -->
+        <button id="download-assemblage" onclick="downloadAssemblage()">  <i class="fa fa-download" aria-hidden="true"></i> download SVG</button>
+        <button onclick="downloadProject()">  <i class="fa fa-floppy-o" aria-hidden="true"></i> download project</button>
+        <button><label for="load-project"> <input type="file" id="load-project" onchange="loadJSON()" accept=".json" style="display:none;"/> <i class="fa fa-cloud-upload" aria-hidden="true"></i> load project</label></button>
+        
+        <label>
+          <input class="form-control" type="checkbox" name="checkbox-checked"  id="autoscale-check"/>
+          autoscale
+        </label>
        
       </div>
       

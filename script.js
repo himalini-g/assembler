@@ -257,10 +257,10 @@ class Thumbnails{
         var thumbnailElemNS = SVGElement(this.width, this.height, this.thumbnailWidth, this.thumbnailHeight, "svg", id);
         var thumbnailDIV = makeDiv(id + "_container", svg.name, this.thumbnailDivClass);
         var deleteButton = makeButton(this.trashicon +  " delete");
-        var duplicateButton = makeButton("duplicate tile");
+        var duplicateButton = makeButton("duplicate");
         
      
-        var loadButton = makeButton(this.editicon +  "edit tile");
+        var loadButton = makeButton(this.editicon +  "edit");
         thumbnailDIV.appendChild(thumbnailElemNS);
         thumbnailDIV.appendChild(deleteButton);
       
@@ -404,24 +404,29 @@ function reset(){
 
 var tileCounter = 0;
 
+
+
+
+
+
 const pixelsInInch = 200;
-// const assemblageWidthInches= 8;
-// const assemblageHeightInches = 10; 
+const assemblageWidthInches= 4;
+const assemblageHeightInches = 5; 
 
 // scale organ
 // const tileScale = 0.50;
-const assemblageWidthInches= 30 - (2 * 2);
-const assemblageHeightInches = 72 - (2 * 2); 
+// const assemblageWidthInches= 30 - (2 * 2);
+// const assemblageHeightInches = 72 - (2 * 2); 
 // scale plants
-const tileScale = 0.70;
+var tileScale = 0.50;
 // scale electronics
 // const tileScale = 0.60;
 
 
-const assemblageWidth = Math.trunc(pixelsInInch * assemblageWidthInches);
-const assemblageHeight = Math.trunc(pixelsInInch * assemblageHeightInches);
-const width = 6 * pixelsInInch;
-const height = 6 * pixelsInInch;
+var assemblageWidth = Math.trunc(pixelsInInch * assemblageWidthInches);
+var assemblageHeight = Math.trunc(pixelsInInch * assemblageHeightInches);
+const width = 3 * pixelsInInch;
+const height = 3 * pixelsInInch;
 const thumbnailHeight = Math.ceil(height / 4);
 const thumbnailWidth = Math.ceil(width / 4);
 const thumbnailDivClass = "thumbnail-container"
@@ -434,6 +439,26 @@ const drawMode = "draw";
 const drawModeButtonID = "draw-button";
 const selectMode = "select";
 const selectModeButtonID = "select-button";
+
+document.getElementById("scale-range").value = tileScale  * 100;
+document.getElementById("scale-text").innerHTML = tileScale;
+document.getElementById("assemblage-width-input").value = assemblageWidth;
+document.getElementById("assemblage-height-input").value = assemblageHeight;
+
+
+document.getElementById("scale-range").oninput = function() {
+    tileScale = this.value / 100;
+    document.getElementById("scale-text").innerHTML = tileScale;
+}
+document.getElementById("assemblage-width-input").addEventListener("change",function (e) {
+    assemblageWidth = this.value;
+    console.log(this.value);
+    assemblerElement =  assemblerSetup([], {}, assemblageWidth, assemblageHeight, tileScale);
+})
+document.getElementById("assemblage-height-input").addEventListener("change",function (e) {
+    assemblageHeight= this.value;
+    assemblerElement =  assemblerSetup([], {}, assemblageWidth, assemblageHeight, tileScale);
+})
 
 
 var SETMODE = drawMode;
