@@ -435,7 +435,6 @@ class Labels{
 
 class AssignLabel{
   constructor(){
-    this.dropDowns = () => document.getElementsByClassName("dropdown-content");
     this.nodes = {};
   }
   render(nodes){
@@ -507,14 +506,6 @@ function labelManagerFromJSON(edgeDict){
           if(!link) {
             link = {source: node1index, target: node2index, right: true, left: false};
             links.push(link);
-          } else{
-            var index = link.reduce(acc, ([link, index]) => {
-              if((nodes[link.source].id === node1 && nodes[link.target].id  === node2) || (nodes[link.source].id === node2 && nodes[link.target].id === node1)){
-                return index;
-              }
-              return acc;
-            }, -1 );
-          
           }
         }
       });
@@ -535,6 +526,9 @@ document.getElementById("add-label").onclick =function(){
 
 }
 
+function toggleInstructionsDropdown(){
+  document.getElementById("instructions-dropdown").classList.toggle("show");
+}
 
 // When the user clicks on <span> (x), close the modal
 document.getElementById("modal-text-close").onclick = function() {
@@ -548,7 +542,12 @@ window.onclick = function(event) {
 }
 
 window.onclick = function(event) {  
-  if (!event.target.matches('#assign-label')) {
+  if(!event.target.matches('#assign-label')){
     assignlabels.closeDropdown()
+  }
+  if(!event.target.matches('#instructions')){
+    if (document.getElementById("instructions-dropdown").classList.contains('show')) {
+        document.getElementById("instructions-dropdown").classList.remove('show');
+    }
   }
 }

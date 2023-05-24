@@ -22,7 +22,13 @@
       <div class="header"> Make Tile </div>
       <div id="drawing-ui-container" class="drawing-container">
         <div id="drawing-tool-panel" class="drawing-panel">
-          <input type="button" value="instructions" onclick="window.open('https://docs.google.com/document/d/10cBzVxWtj3KSDs_mG5ULo_yI_5gars03324DIMb4k_o/edit?usp=sharing')" />
+          <button id="instructions" onclick="toggleInstructionsDropdown()">instructions</button>
+          <div class="dropdown">
+            <div id="instructions-dropdown" class="dropdown-content">
+            <p onclick="window.open('https://docs.google.com/document/d/1hrwBiX8EBgNT8JZfoFFX7EnDIn__Jqudjkugnt13OQ0/edit?usp=sharing')">documentation</p>
+            <p onclick="window.open('https://youtu.be/Bl4Aj9KGqdw')">tutorial</p>
+            </div>
+          </div>
           <button onclick="saveTile()"> save tile</button>
           <button id="draw-button"> <i class="fa fa-pencil" aria-hidden="true"></i> draw</button>
           <button id="select-button"> <i class="fa fa-mouse-pointer" aria-hidden="true"></i> select</button>

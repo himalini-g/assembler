@@ -469,7 +469,9 @@ function draw_svg(element, polylines, matrix){
   var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
   element.appendChild(g);
   var lineObjs = polylines.map((line, index) => {
-    var lineObj = new Line("assembler_" + index.toString())
+    // constructor(ID, lineClosed=false, stroke="#000", fill="none", width=2) 
+    
+    var lineObj = new Line("assembler_" + index.toString(), false, "#000", "none", 1)
     lineObj.points = line;
     lineObj.reRender();
     return lineObj

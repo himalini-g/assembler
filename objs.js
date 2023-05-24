@@ -118,9 +118,9 @@ class TextSVG {
 }
 
 class Line {
-    constructor(ID, lineClosed=false, stroke="#000", fill="none") {
+    constructor(ID, lineClosed=false, stroke="#000", fill="none", width=2) {
         this.fill = fill;
-        this.strokeWidth = 2;
+        this.strokeWidth = width;
         this.stroke = stroke;
         this.points = [];
         this.elements = {};

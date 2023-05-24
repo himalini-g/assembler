@@ -446,6 +446,7 @@ document.getElementById("assemblage-width-input").value = assemblageWidth;
 document.getElementById("assemblage-height-input").value = assemblageHeight;
 
 
+
 document.getElementById("scale-range").oninput = function() {
     tileScale = this.value / 100;
     document.getElementById("scale-text").innerHTML = tileScale;
